@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Home from './HomeComponent';
 import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
+import About from './AboutComponent';
+import Contact from './ContactComponent';
 import Constants from 'expo-constants';
 import { View, Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -29,6 +31,39 @@ const DirectoryNavigator = createStackNavigator(
     }
 );
 
+const AboutNavigator = createStackNavigator(
+    {
+      About: { screen: About },
+    },
+    {
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: "#5637DD",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          color: "#fff",
+        },
+      },
+    }
+  );
+  const ContactNavigator = createStackNavigator(
+    {
+      Contact: { screen: Contact },
+    },
+    {
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: "#5637DD",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          color: "#fff",
+        },
+      },
+    }
+  );
+
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
@@ -49,7 +84,9 @@ const HomeNavigator = createStackNavigator(
 const MainNavigator = createDrawerNavigator(
     {
         Home: { screen: HomeNavigator },
-        Directory: { screen: DirectoryNavigator }
+        Directory: { screen: DirectoryNavigator },
+        Contact: { screen: ContactNavigator },
+        About: { screen: AboutNavigator },
     },
     {
         drawerBackgroundColor: '#CEC8FF'
