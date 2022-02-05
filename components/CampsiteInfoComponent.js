@@ -94,7 +94,7 @@ function RenderCampsite(props) {
                         />
 
                         <Icon
-                            name={props.favorite ?'pencil':'pencil'}
+                            name={'pencil'}
                             type='font-awesome'
                             color='#5637DD'
                             raised
@@ -153,6 +153,7 @@ class CampsiteInfo extends Component {
             rating: 5,
             author: '',
             text: '',
+            showModal: false
         };
     }
 
@@ -249,13 +250,14 @@ class CampsiteInfo extends Component {
                         
                             <View style={{margin: 10}} >
                                 <Button
-                                    color = {'#808080'}
-                                    title='Cancel'
-                                    onPress={() => {
-                                        this.toggleModal()
-                                        }}                               
+                                    color={"#808080"}
+                                    title="Cancel"
+                                        onPress={() => {
+                                        this.toggleModal();
+                                        this.resetForm();
+                                        }}
                                 />
-                            
+                                                    
                             </View>
                     </View>
                 </Modal> 
