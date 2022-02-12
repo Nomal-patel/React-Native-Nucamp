@@ -1,18 +1,27 @@
 
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements';
 import { Card } from 'react-native-elements';
 import { View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import * as MailComposer from 'expo-mail-composer';
 
 
 class Contact extends Component {
     static navigationOptions = {
         title: 'Contact Us'
     };
+
+    sendMail() {
+        MailComposer.composeAsync({
+            recipients: ['campsites@nucamp.co'],
+            subject: 'Inquiry',
+            body: 'To whom it may concern:'
+        })
+    }
+
 
     render() {
         const { navigate } = this.props.navigation;
@@ -42,6 +51,18 @@ class Contact extends Component {
                         <Text>
                             Email: campsites@nucamp.co
                         </Text>
+
+                        <Button
+                            title="Send Email"
+                            buttonStyle={{backgroundColor: '#5637DD', margin: 40}}
+                            icon={<Icon
+                                name='envelope-o'
+                                type='font-awesome'
+                                color='#fff'
+                                iconStyle={{marginRight: 10}}
+                            />}
+                            onPress={() => this.sendMail()}
+                        />
 
                     </Card>
                 </Animatable.View>           
