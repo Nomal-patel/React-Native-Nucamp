@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Card, Button, Icon } from 'react-native-elements';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements';
-import { Card } from 'react-native-elements';
 import { View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import * as MailComposer from 'expo-mail-composer';
